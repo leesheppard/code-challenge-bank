@@ -19,12 +19,22 @@ Download and install:
     $ git clone https://github.com/leesheppard/code-challenge-bank.git    
     $ cd code-challenge-bank
 
+### Run the application
+
+To run the transfer of funds:
+
+    $ rake transfers
+
+Or manually with:
+
+    $ ruby bank.rb
+
 ### Testing
 
 To run test suite:
 
     $ rspec
-    
+
 ### Afterword
 
 Thanks for checking out my work.

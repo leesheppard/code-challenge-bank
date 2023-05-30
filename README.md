@@ -1,5 +1,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com)
 
+[![Funds transfer tests](https://github.com/leesheppard/code-challenge-bank/actions/workflows/banking.yml/badge.svg?branch=main)](https://github.com/leesheppard/code-challenge-bank/actions/workflows/banking.yml)
+
 # Requirements
 
 - [Ruby](Gemfile#L4)

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../bank'
+require_relative '../lib/bank'
 
 RSpec.describe Bank do
   let(:bank) { described_class.new }
@@ -9,7 +9,7 @@ RSpec.describe Bank do
     context 'with valid data' do
       it 'loads account balances' do
         expect do
-          bank.load_accounts('mb_acc_balance.csv')
+          bank.load_accounts('./csv/mb_acc_balance.csv')
         end.to change { bank.instance_variable_get(:@accounts).size }.by(5)
       end
     end
@@ -31,7 +31,7 @@ RSpec.describe Bank do
 
   describe '#process_transfers' do
     before do
-      bank.load_accounts('mb_acc_balance.csv')
+      bank.load_accounts('./csv/mb_acc_balance.csv')
     end
 
     context 'with valid data' do
@@ -74,7 +74,7 @@ RSpec.describe Bank do
 
   describe '#print_balances' do
     it 'prints account balances' do
-      bank.load_accounts('mb_acc_balance.csv')
+      bank.load_accounts('./csv/mb_acc_balance.csv')
       expect { bank.print_balances }.to output("1111234522226789: $5000.00\n1111234522221234: $10000.00\n2222123433331212: $550.00\n1212343433335665: $1200.00\n3212343433335755: $50000.00\n").to_stdout
     end
   end

@@ -41,6 +41,6 @@ class Bank
 end
 
 bank = Bank.new
-bank.load_accounts('mb_acc_balance.csv')
-bank.process_transfers('mb_trans.csv')
+bank.load_accounts('./csv/mb_acc_balance.csv')
+bank.process_transfers('./csv/mb_trans.csv')
 bank.print_balances

@@ -1,46 +1,32 @@
 # frozen_string_literal: true
 
-require 'csv'
+require_relative 'importer'
 
 class Bank
+  attr_accessor :accounts
+
   def initialize
-    @accounts = {}
+    @accounts = Importer.new.load_accounts('./csv/mb_acc_balance.csv')
   end
 
-  def load_accounts(csv_filename)
-    CSV.foreach(csv_filename) do |row|
-      account_number = row[0]
-      balance = row[1].to_f
-      raise 'Invalid account number' if account_number.size != 16
-      raise 'Invalid balance value' if balance.negative?
-
-      @accounts[account_number] = balance
+  def account_balances
+    accounts.each do |account|
+      puts "Start balance #{account.account_number}: $#{'%.2f' % account.balance}"
     end
   end
 
-  def process_transfers(csv_filename)
-    CSV.foreach(csv_filename) do |row|
-      from_account = row[0]
-      to_account = row[1]
-      amount = row[2].to_f
-      raise 'Invalid account number' if from_account.size != 16 || to_account.size != 16
-      raise 'Invalid transfer amount' if amount.negative?
-      raise 'Account not found' unless @accounts.key?(from_account) && @accounts.key?(to_account)
-      raise 'Insufficient funds' if (@accounts[from_account] - amount).negative?
-
-      @accounts[from_account] -= amount
-      @accounts[to_account] += amount
-    end
+  def process_transfers
+    self.accounts = Importer.new.load_transfers('./csv/mb_trans.csv', accounts)
   end
 
   def print_balances
-    @accounts.each do |account_number, balance|
-      puts "#{account_number}: $#{'%.2f' % balance}"
+    accounts.each do |account|
+      puts "New balance #{account.account_number}: $#{'%.2f' % account.balance}"
     end
   end
 end
 
 bank = Bank.new
-bank.load_accounts('./csv/mb_acc_balance.csv')
-bank.process_transfers('./csv/mb_trans.csv')
+bank.account_balances
+bank.process_transfers
 bank.print_balances

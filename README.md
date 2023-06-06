@@ -35,13 +35,19 @@ Or manually with:
 
 To run test suite:
 
-    $ rspec
+    $ bundle exec rspec
+
+### Code Coverage
+
+SimpleCov will run automatically when you run the test suite. To view the coverage report:
+
+    $ open coverage/index.html
 
 ### Afterword
 
 Thanks for checking out my work.
 
-![Lee Sheppard signature](http://res.cloudinary.com/leesheppard/image/upload/v1496495524/Lee-Sheppard-Black_iv1j84.png)
+<img src="https://res.cloudinary.com/leesheppard/image/upload/v1496495524/Lee-Sheppard-Black_iv1j84.png" width="160">
 
 - [Linkedin](https://www.linkedin.com/in/leesheppard)
 - [Twitter](https://twitter.com/leesheppard)

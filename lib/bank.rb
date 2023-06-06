@@ -10,8 +10,9 @@ class Bank
   end
 
   def account_balances
+    puts "Account balances"
     accounts.each do |account|
-      puts "Start balance #{account.account_number}: $#{'%.2f' % account.balance}"
+      puts "#{account.account_number}: $#{'%.2f' % account.balance}"
     end
   end
 
@@ -20,8 +21,9 @@ class Bank
   end
 
   def print_balances
+    puts "New balances"
     accounts.each do |account|
-      puts "New balance #{account.account_number}: $#{'%.2f' % account.balance}"
+      puts "#{account.account_number}: $#{'%.2f' % account.balance}"
     end
   end
 end

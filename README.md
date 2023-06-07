@@ -29,7 +29,7 @@ To run the transfer of funds:
 
 Or manually with:
 
-    $ ruby bank.rb
+    $ ruby lib/bank.rb
 
 ### Testing
 

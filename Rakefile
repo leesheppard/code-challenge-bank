@@ -1,3 +1,3 @@
 task :transfers do
-  ruby 'lib/bank.rb'
+  ruby "lib/bank.rb"
 end

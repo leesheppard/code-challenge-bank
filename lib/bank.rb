@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require_relative 'importer'
+require_relative "importer"
 
 class Bank
   attr_accessor :accounts
 
   def initialize
-    @accounts = Importer.new.load_accounts('./csv/mb_acc_balance.csv')
+    @accounts = Importer.new.load_accounts("./csv/mb_acc_balance.csv")
   end
 
   def account_balances
@@ -17,7 +17,7 @@ class Bank
   end
 
   def process_transfers
-    self.accounts = Importer.new.load_transfers('./csv/mb_trans.csv', accounts)
+    self.accounts = Importer.new.load_transfers("./csv/mb_trans.csv", accounts)
   end
 
   def print_balances

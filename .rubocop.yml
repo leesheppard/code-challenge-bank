@@ -159,12 +159,6 @@ Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
 
-# Rails Cops
-
-Rails/Delegate:
-  Description: 'Prefer delegate method for delegations.'
-  Enabled: false
-
 # Bundler Cops
 
 Bundler/OrderedGems:
